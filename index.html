@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+      <div class="container">
+          <h1 class="text-primary text-center">Javascript Form Validation</h1>
+          <div class="col-lg-8 m-auto d-block">
+          <form action="#" onsubmit="return validation()" class="bg-light">
+                <div class="formgroup">
+                    <label>STUDENT NAME:</label>
+                    <input type="text" name="studentname" class="form-control" id="student" autocomplete="off">
+                    <span id="students" class="text-danger"></span>
+                </div><br>
+                <div class="formgroup">
+                        <label>FATHER NAME:</label>
+                        <input type="text" name="fathername" class="form-control" id="father" autocomplete="off">
+                        <span id="fathers" class="text-danger"></span>
+                </div><br>
+                <div class="formgroup">
+                        <label>MOTHER NAME:</label>
+                        <input type="text" name="mothername" class="form-control" id="mother" autocomplete="off">
+                        <span id="mothers" class="text-danger"></span>
+                </div><br>
+                <div class="formgroup">
+                        <label>MOBILE N0:</label>
+                        <input type="text" name="mobleno" class="form-control" id="mobile" autocomplete="off">
+                        <span id="mobiles" class="text-danger"></span>
+                </div><br>
+                <div class="formgroup">
+                    <label>EMAIL ID:</label>
+                    <input type="text" name="emailid" class="form-control" id="email" autocomplete="off">
+                    <span id="emails" class="text-danger"></span>
+            </div><br>
+                <input type="submit" value="submit" name="submit" class="btn btn-success">
+          </form>
+      </div>
+    </div> 
+    <script type="text/javascript">
+        function validation(){
+            var student=document.getElementById('student').value;
+            var father=document.getElementById('father').value;
+            var mother=document.getElementById('mother').value; 
+            var mobile=document.getElementById('mobile').value;                                
+            var email=document.getElementById('email').value;           
+            if(student==""){
+                document.getElementById('students').innerHTML=" **student name is required";
+                return false;
+            }
+            if((student.length <5)|| (student.length >20)){
+                document.getElementById('students').innerHTML=" **student name should be between 5 to 20 character";
+                return false;
+            }
+            if(!isNaN(student)){
+                document.getElementById('students').innerHTML=" **student name should not be number";
+                return false;
+            }
+            else
+                document.getElementById('students').innerHTML="";
+
+            if(father==""){
+                document.getElementById('fathers').innerHTML=" **father name is required";
+                return false;
+            }
+            if((father.length <5)|| (father.length >20)){
+                document.getElementById('fathers').innerHTML=" **father name should be between 5 to 20 character";
+                return false;
+            }
+            if(!isNaN(father)){
+                document.getElementById('fathers').innerHTML=" **father name should not be number";
+                return false;
+            }
+            else
+                document.getElementById('fathers').innerHTML="";
+
+            if(mother==""){
+                document.getElementById('mothers').innerHTML=" **mother name is required";
+                return false;
+            }
+            if((mother.length <5)|| (mother.length >20)){
+                document.getElementById('mothers').innerHTML=" **mother name should be between 5 to 20 character";
+                return false;
+            }
+            if(!isNaN(mother)){
+                document.getElementById('mothers').innerHTML=" **mother name should not be number";
+                return false;
+            }
+            else
+                document.getElementById('mothers').innerHTML="";
+
+            if(mobile==""){
+                document.getElementById('mobiles').innerHTML=" **please fill the mobile no.";
+                return false;
+            }
+            if(isNaN(mobile)){
+                document.getElementById('mobiles').innerHTML=" **mobile no should not be character";
+                return false;
+            }
+            if(mobile.length!=10){
+                document.getElementById('mobiles').innerHTML=" **mobile no should be 10 digits";
+                return false;
+            }
+            else{
+                document.getElementById('mobile').innerHTML="";
+            }
+
+            if(email == ""){
+                document.getElementById('emails').innerHTML=" **please fill the email";
+                return false;
+            }
+            if(email.indexOf('@') <=0){
+                document.getElementById('emails').innerHTML=" **@ invalid position";
+                return false;
+            }
+            if(email.charAt(email.length-4)!='.'){
+                document.getElementById('emails').innerHTML=" ** . invalid position";
+                return false;
+            }
+        }
+    </script>
+    </body>
+</html>
